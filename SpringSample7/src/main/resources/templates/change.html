@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  	<meta charset="UTF-8">
+	<title>Spring Boot Sample 7</title>
+</head>
+<body>
+	<!-- Title display -->
+	<h3>Customer Information Chenge</h3>
+	<form th:action="@{/update}" th:object="${customerUpdate}" th:method="post">
+		<!-- ID to be changed -->
+		<input type="hidden" th:field="*{num}" />
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Telno</th>
+			</tr>
+			<!-- Revised Customer Information Entry Field -->
+			<tr>
+				<td><input type="text" th:field="*{name}"></td>
+				<td><input type="text" th:field="*{address}"></td>
+				<td><input type="text" th:field="*{telno}"></td>
+			</tr>
+		</table>
+		<!-- Save button -->
+		<button type="submit">Save</button>
+	</form>
+	<!-- Back button -->
+	<input type="button" onclick="history.back()" value="Retuen">
+</body>
+</html>

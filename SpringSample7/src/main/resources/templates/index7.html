@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  	<meta charset="UTF-8">
+	<title>Spring Boot Sample 7</title>
+</head>
+<body>
+	<!-- Title display -->
+	<h3>Customer Information Change</h3>
+	<table>
+		<tr>
+			<th></th><!-- Empty elements for change links -->
+			<th>Name</th>
+			<th>Address</th>
+			<th>Telno</th>
+		</tr>
+		<!-- Display the information obtained from the DB in a loop -->
+		<tr th:each="cus : ${customerlist}" th:object="${cus}">
+			<!-- Change Link -->
+			<td><a th:href="@{/{num}/change(num=*{num})}" style="text-decoration:none;">◆️</a></td>
+			<td th:text="*{name}"></td>
+			<td th:text="*{address}"></td>
+			<td th:text="*{telno}"></td>
+		</tr>
+	</table>
+</body>
+</html>
